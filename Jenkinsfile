@@ -8,7 +8,7 @@
     stages {
       stage('fetch_latest_code') {
         steps {
-           url: 'https://github.com/hcrapidinnovation/terraform-jenkins-ec2'
+          git url: 'https://github.com/hcrapidinnovation/terraform-jenkins-ec2'
         }
       }
 
