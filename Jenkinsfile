@@ -5,6 +5,12 @@
       } 
     }
 
+     environment {
+        AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
+        AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
+    }
+
+
     stages {
       stage('fetch_latest_code') {
         steps {
@@ -14,9 +20,11 @@
 
       stage('TF Init&Plan') {
         steps {
-          sh 'terraform init'
-          sh 'terraform plan'
-        }      
+          
+          sh 'terraform init -input=false'
+          sh 'terraform workspace select ${environment} || terraform workspace new ${environment}'
+           sh "terraform plan -input=false -out tfplan "
+           sh 'terraform show -no-color tfplan > tfplan.txt'        }      
       }
 
       stage('Approval') {
