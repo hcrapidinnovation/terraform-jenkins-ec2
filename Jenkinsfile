@@ -6,8 +6,8 @@
     }
 
      environment {
-        AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID_RAZEE')
-        AWS_SECRET_ACCESS_KEY = credentials('SECRET_RAZEE_KEY')
+        AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID_RAJEE')
+        AWS_SECRET_ACCESS_KEY = credentials('SECRET_RAJEE_KEY')
     }
 
 
